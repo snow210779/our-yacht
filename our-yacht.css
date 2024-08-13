@@ -9,8 +9,11 @@
   max-width: 319px;
 }
 
-.yacht-thumb-item {
+.yacht-thumb-list {
   margin-bottom: 40px;
+}
+
+.yacht-thumb-item {
   display: none;
 }
 
@@ -33,6 +36,7 @@
   display: flex;
   align-items: center;
   padding-bottom: 32px;
+  margin-bottom: 16px;
 }
 
 .yacht-subtitle-wrap::after {
@@ -53,6 +57,8 @@
   text-transform: uppercase;
   color: #1b414b;
   margin-right: auto;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .yacht-subtitle-characteristics {
@@ -62,37 +68,35 @@
   text-transform: uppercase;
   color: #040306;
   opacity: 0.4;
-}
-
-.yacht-description-list-wrapper {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 16px;
+  display: inline-block;
 }
 
 .yacht-description-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.yacht-description-span {
   font-size: 14px;
   line-height: 1.18;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: #040306;
   opacity: 0.4;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  display: block;
 }
 
-.yacht-characteristic-item {
+.yacht-characteristic-span {
   font-size: 14px;
   line-height: 1.18;
   letter-spacing: 0.03em;
   color: #040306;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  display: block;
 }
 
 .yacht-btn {
-  border: 1px solid rgba(251, 251, 251, 0.35);
-  border-radius: 15px;
-  width: 141px;
-  height: 46px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -106,16 +110,19 @@
   line-height: 1.29;
   letter-spacing: -0.02em;
   color: #fbfbfb;
+  padding: 16px 40px;
+  border: 1px solid rgba(251, 251, 251, 0.35);
+  border-radius: 15px;
+  transition: background-color 250ms ease-out, color 250ms ease-out;
 }
 
-.yacht-btn:is(:hover, :focus) {
+.yacht-btn-link:is(:hover, :focus) {
   background-color: #fbfbfb;
 }
 
 .yacht-btn-link:is(:hover, :focus) {
   color: #1b414b;
 }
-
 @media screen and (min-width: 768px) {
   .yacht-title {
     font-size: 48px;
@@ -126,15 +133,23 @@
   .yacht-thumb-list {
     display: flex;
     gap: 32px;
+    margin-bottom: 50px;
   }
 
   .yacht-thumb-item {
     width: calc((100% - 32px) / 2);
-    margin-bottom: 50px;
   }
 
   .yacht-thumb-item:not(:last-child) {
     display: block;
+  }
+
+  .yacht-subtitle-description {
+    max-width: 142px;
+  }
+
+  .yacht-subtitle-description.part {
+    text-overflow: ellipsis;
   }
 }
 
@@ -152,5 +167,9 @@
 
   .yacht-thumb-item {
     width: calc((100% - 50px) / 3);
+  }
+
+  .yacht-subtitle-description {
+    max-width: 165px;
   }
 }
